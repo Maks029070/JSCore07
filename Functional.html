@@ -1,0 +1,60 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function show(data) {
+			console.log(data);
+		}
+
+		function Robot() {
+			var self = this;
+			self.name = "Robot";
+			self.job = "я просто працюю";
+			self.work = function() {
+				show("Я " + self.name + " - " + self.job);
+			}
+		}
+
+		function CoffeRobot() {
+			var self = this;
+			Robot.call(self);
+			self.name = "CoffeRobot";
+			self.job = "Я варю каву";
+		}
+
+		function RobotDancer() {
+			var self = this;
+			Robot.call(self);
+			self.name = "RobotDancer";
+			self.job = "Я просто танцюю";
+		}
+
+		function RobotCoocker() {
+			var self = this;
+			Robot.call(self);
+			self.name = "RobotCoocker";
+			self.job = "Я просто готую";
+		}
+
+		var robot = new Robot();
+		var coffeVVVVVVVVrobot = new CoffeRobot();
+		var robotdancer = new RobotDancer();
+		var robotcoocker = new RobotCoocker();
+
+		robot.work();
+		cofferobot.work();
+		robotdancer.work();
+		robotcoocker.work();
+
+		show("Результат роботи цилку");
+		var RobotsArray = [robot, cofferobot, robotdancer, robotcoocker];
+		for (var i = 0; i < RobotsArray.length; i++) {
+			RobotsArray[i].work();
+		}
+		</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		function Robot() {
+			var self = this;
+			self.name = "Robot";
+			self.job = "я просто працюю";
+		}
+
+		Robot.prototype.work = function() {
+			var self = this;
+			console.log("Я " + self.name + " - " + self.job);
+		}
+		
+		function CoffeRobot() {
+			var self = this;
+			self.name = "CoffeRobot";
+			self.job = "Я варю каву";
+		}
+		CoffeRobot.prototype = Object.create(Robot.prototype);
+		CoffeRobot.prototype.constructor = CoffeRobot;
+
+		function RobotDancer() {
+			var self = this;
+			self.name = "RobotDancer";
+			self.job = "Я просто танцюю";
+		}
+		RobotDancer.prototype = Object.create(Robot.prototype);
+		RobotDancer.prototype.constructor = RobotDancer;
+
+		function RobotCoocker() {
+			var self = this;
+			self.name = "RobotCoocker";
+			self.job = "Я просто готую";
+		}
+		RobotCoocker.prototype = Object.create(Robot.prototype);
+		RobotCoocker.prototype.constructor = RobotCoocker;
+
+		var robot = new Robot;
+		var cofferobot = new CoffeRobot;
+		var robotdancer = new RobotDancer;
+		var robotcoocker = new RobotCoocker;
+
+		robot.work();
+		cofferobot.work();
+		robotdancer.work();
+		robotcoocker.work();
+		
+		console.log("Результат роботи цилку");
+		var RobotsArray = [robot, cofferobot, robotdancer, robotcoocker];
+		for (var i = 0; i < RobotsArray.length; i++) {
+			RobotsArray[i].work();
+		}
+	</script>
+</body>
+</html>
